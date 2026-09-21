@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --vignette: rgba(8, 7, 8, 0.72);
+  --glow-warm: rgba(216, 184, 140, 0.16);
+  --glow-tech: rgba(111, 169, 216, 0.1);
+  --paper-fill: rgba(245, 239, 230, 0.12);
+  --desk-fill: rgba(23, 19, 15, 0.7);
+  --night-wash: rgba(8, 8, 10, 0.72);
+  --mist-wash: rgba(11, 11, 13, 0.62);
+  --road-fill: rgba(18, 16, 14, 0.88);
+  --dash-line: rgba(245, 239, 230, 0.28);
+  --phone-fill: #121216;
+}
+
+html[data-theme="light"] {
+  --color-background: #f3eee6;
+  --color-surface: #e6ddd1;
+  --color-ink: #1c1916;
+  --vignette: rgba(243, 238, 230, 0.62);
+  --glow-warm: rgba(176, 118, 52, 0.16);
+  --glow-tech: rgba(48, 96, 140, 0.12);
+  --paper-fill: rgba(28, 25, 22, 0.08);
+  --desk-fill: rgba(232, 222, 208, 0.82);
+  --night-wash: rgba(72, 62, 54, 0.22);
+  --mist-wash: rgba(230, 221, 209, 0.55);
+  --road-fill: rgba(90, 78, 68, 0.18);
+  --dash-line: rgba(28, 25, 22, 0.28);
+  --phone-fill: #e6ddd1;
+}
+
+@theme {
+  --color-background: #0b0b0d;
+  --color-surface: #121216;
+  --color-ink: #f5efe6;
+  --color-gold: #d4af37;
+  --color-gold-muted: #a88935;
+  --color-rose: #d88aa6;
+  --color-tech: #6fa9d8;
+  --color-brown: #3d302d;
+
+  --font-heading: var(--font-cormorant), "Times New Roman", serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 5rem);
+  --text-major: clamp(2rem, 3.5vw + 0.75rem, 3.5rem);
+  --text-section: clamp(1.625rem, 2vw + 0.75rem, 2.5rem);
+  --text-subhead: clamp(1.375rem, 1.25vw + 0.75rem, 1.75rem);
+  --text-body: clamp(0.9375rem, 0.35vw + 0.85rem, 1.125rem);
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-ink);
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+.theme-moon-halo-0 {
+  stop-color: rgba(210, 220, 255, 0.38);
+}
+
+.theme-moon-halo-1 {
+  stop-color: rgba(168, 184, 220, 0.1);
+}
+
+.theme-moon-core-0 {
+  stop-color: #f4f1e8;
+}
+
+.theme-moon-core-1 {
+  stop-color: #c8c3b4;
+}
+
+.theme-moon-core-2 {
+  stop-color: #8a8678;
+}
+
+.theme-moon-core-3 {
+  stop-color: #4a4750;
+}
+
+.theme-moon-shade {
+  stop-color: rgba(18, 20, 28, 0.32);
+}
+
+.theme-moon-crater {
+  fill: rgba(72, 70, 78, 0.28);
+}
+
+.theme-moon-crater-soft {
+  fill: rgba(72, 70, 78, 0.16);
+}
+
+html[data-theme="light"] .theme-moon-halo-0 {
+  stop-color: rgba(90, 96, 120, 0.22);
+}
+
+html[data-theme="light"] .theme-moon-halo-1 {
+  stop-color: rgba(90, 96, 120, 0.06);
+}
+
+html[data-theme="light"] .theme-moon-core-0 {
+  stop-color: #ece7d8;
+}
+
+html[data-theme="light"] .theme-moon-core-1 {
+  stop-color: #b7b0a0;
+}
+
+html[data-theme="light"] .theme-moon-core-2 {
+  stop-color: #6f6a60;
+}
+
+html[data-theme="light"] .theme-moon-core-3 {
+  stop-color: #3a3632;
+}
+
+html[data-theme="light"] .theme-moon-shade {
+  stop-color: rgba(40, 36, 32, 0.28);
+}
+
+html[data-theme="light"] .theme-moon-crater {
+  fill: rgba(58, 52, 46, 0.28);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@utility journey-stage {
+  width: 100vw;
+  height: 100dvh;
+}
+
+@utility journey-gutter {
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+@keyframes uncertainty-pulse {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+html.journey-lock,
+html.journey-lock body {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+  touch-action: pan-y;
+}
